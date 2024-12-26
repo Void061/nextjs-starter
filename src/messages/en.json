@@ -1,0 +1,22 @@
+{
+  "HomePage": {
+    "welcome": "Welcome to Next.js starter!",
+    "start": "Start now!",
+    "id": "Identifier",
+    "name": "Name",
+    "create-new-user": "Click here to create new user",
+    "loading": "Loading",
+    "email": "E-mail",
+    "email-description": "Your personal e-mail",
+    "password": "Password",
+    "password-description": "Your personal password",
+    "name-description": "Your personal name",
+    "create-user-form-title": "Create new user",
+    "create-user-form-description": "Fill all form fields to create new user",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "email-error": "Please insert valid email",
+    "name-error": "Please insert valid name, min 4 characters",
+    "password-error": "Please insert valid password, min 6 characters"
+  }
+}
