@@ -21,7 +21,7 @@ Starter project for next.js, ready for development.
 ## Architecture
 The architecture remains true to the old paradigm, according to which the responsibility for “actions” lies with the client, so this repo does not follow the new conventions with component-server and action-server.
 
-Il progetto segue un'architettura a strati, sfruttando react-query, non manipolerà mai i dati reali sulle chiamate api, ma chiamerà gestori di entità, che avranno al loro interno le vere chiamate api; si noti che anche i veri 'richiedenti' non chiamano direttamente l'api, c'è un gestore di base che lo fa per loro.
+The project follows a layered architecture, taking advantage of react-query, it will never manipulate the actual data on the api calls, but will call entity handlers, which will have the real api calls inside them; note that even the real 'requesters' do not call the api directly, there is a basic handler that does it for them.
 
 Form management is completely based on the solution proposed by ShadCN, which uses react-form and zod for validation.
 
