@@ -29,7 +29,7 @@ Within the project we try to use Screaming Architecture as much as possible, hig
 
 ## Fast Onboarding
 #### App folder
-- /app ( Routing )
+- /app (Routing)
 
 #### Common folder
 - /common (Global types and constants)
