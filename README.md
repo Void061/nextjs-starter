@@ -18,6 +18,11 @@ Starter project for next.js, ready for development.
 - ✨ Dev-friendly CLI (TBD)
 - ✨ Supabase auth (TBD)
 
+## Concepts
+- 🤝 Screaming Architecture
+- 📄 Layered Architecture
+- ⚡ Reactive data-modeling
+
 ## Architecture
 The architecture remains true to the old paradigm, according to which the responsibility for “actions” lies with the client, so this repo does not follow the new conventions with component-server and action-server.
 
