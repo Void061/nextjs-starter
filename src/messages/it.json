@@ -20,5 +20,18 @@
     "password-error": "Inserisci una password di almeno 6 caratteri",
     "generic-error": "Si è verificato un errore, riprova",
     "error": "Errore"
+  },
+  "Auth": {
+    "welcome-back": "Benvenuto!",
+    "register-title": "Registra un nuovo account",
+    "email": "email",
+    "email-placeholder": "La tua email",
+    "password": "password",
+    "password-placeholder": "La tua password",
+    "forgot-password": "Hai dimenticato la password?",
+    "signin": "Accedi",
+    "or-continue-with": "O continua con",
+    "login-with-google": "Accedi con google",
+    "have-an-account": "Hai già un account? "
   }
 }

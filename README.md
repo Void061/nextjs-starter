@@ -17,12 +17,21 @@ Starter project for next.js, ready for development.
 - ✨ Husky
 - ✨ Dev-friendly CLI (TBD)
 - ✨ Supabase auth (TBD)
+- ✨ Proxy (Hide real server-api source TBD)
+- ✨ LF characters
 
 ## Concepts
 - 🤝 Screaming Architecture
 - 📄 Layered Architecture
 - ⚡ Reactive data-modeling
 - 🌱 Structured react-query
+
+## Supabase init
+This starter uses supabase only for authentication; you will need to initialize a project on supabase and pick up the PUBLIC URL and ANON KEY.
+
+Go inside your project on supabase > settings > api > Project url (PUBLIC_URL)
+
+Go inside your project on supabase > settings > api > Project api keys > anon public (ANON KEY)
 
 ## Architecture
 The architecture remains true to the old paradigm, according to which the responsibility for “actions” lies with the client, so this repo does not follow the new conventions with component-server and action-server.
@@ -46,6 +55,9 @@ Within the project we try to use Screaming Architecture as much as possible, hig
 
 #### App folder
 - /app (Routing)
+
+#### Actions
+- /actions (Server-side actions, only for auth)
 
 #### Common folder
 - /common (Global types and constants)

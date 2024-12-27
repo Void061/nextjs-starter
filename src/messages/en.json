@@ -20,5 +20,18 @@
     "password-error": "Please insert valid password, min 6 characters",
     "generic-error": "There was an error, please try again",
     "error": "Error"
+  },
+  "Auth": {
+    "welcome-back": "Welcome!",
+    "register-title": "Register your account",
+    "email": "email",
+    "email-placeholder": "Your email",
+    "password": "password",
+    "password-placeholder": "Your password",
+    "forgot-password": "Forgot your password?",
+    "signin": "Signin",
+    "or-continue-with": "Or continue with",
+    "login-with-google": "Login with google",
+    "have-an-account": "Already have an account? "
   }
 }
