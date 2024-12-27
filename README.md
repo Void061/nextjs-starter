@@ -28,6 +28,16 @@ Form management is completely based on the solution proposed by ShadCN, which us
 Within the project we try to use Screaming Architecture as much as possible, highlighting the names of individual directories and, where possible, individual files.
 
 ## Fast Onboarding
+
+#### Husky
+- /.husky (Simple husky with pre-commit)
+
+#### Public
+- /public (Common public folder)
+
+#### Src
+- /src (Real app source)
+
 #### App folder
 - /app (Routing)
 
