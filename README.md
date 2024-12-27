@@ -10,7 +10,8 @@ Starter project for next.js, ready for development.
 - ✨ ShadcnUI
 - ✨ next-intl
 - ✨ React-query
-- ✨ Zunstand
+- ✨ Dark Mode
+- ✨ Zunstand (TBD)
 - ✨ Eslint
 - ✨ Prettier
 - ✨ Husky

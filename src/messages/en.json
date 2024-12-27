@@ -17,6 +17,8 @@
     "cancel": "Cancel",
     "email-error": "Please insert valid email",
     "name-error": "Please insert valid name, min 4 characters",
-    "password-error": "Please insert valid password, min 6 characters"
+    "password-error": "Please insert valid password, min 6 characters",
+    "generic-error": "There was an error, please try again",
+    "error": "Error"
   }
 }

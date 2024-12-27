@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from 'next-intl';
 
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ReactQueryProvider } from '@/components/providers/react-query-provider';
+import { Toaster } from '@/components/ui/toaster';
 
 export default async function RootLayout({
   children,
@@ -22,11 +23,12 @@ export default async function RootLayout({
           <ReactQueryProvider>
             <ThemeProvider
               attribute='class'
-              defaultTheme='system'
+              defaultTheme='light'
               enableSystem
               disableTransitionOnChange
             >
-              {children}
+              <main>{children}</main>
+              <Toaster />
             </ThemeProvider>
           </ReactQueryProvider>
         </NextIntlClientProvider>

@@ -17,6 +17,8 @@
     "cancel": "Annulla",
     "email-error": "Inserisci una e-mail valida",
     "name-error": "Inserisci un nome di almeno 4 caratteri",
-    "password-error": "Inserisci una password di almeno 6 caratteri"
+    "password-error": "Inserisci una password di almeno 6 caratteri",
+    "generic-error": "Si è verificato un errore, riprova",
+    "error": "Errore"
   }
 }

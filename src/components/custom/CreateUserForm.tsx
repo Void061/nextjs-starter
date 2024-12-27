@@ -18,6 +18,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { useCreateUser } from '@/entities/User/useUserMutations';
 import Button from '@/components/custom/Button';
+import { useToast } from '@/hooks/use-toast';
 
 interface ICreateUserFormProps {
   setOpenDialog: (open: boolean) => void;
@@ -28,7 +29,8 @@ const CreateUserForm = ({ setOpenDialog }: ICreateUserFormProps) => {
   const form = useForm<CreateUserFormFields>({
     resolver: zodResolver(createUserValidation),
   });
-  const { mutateAsync, isPending, isSuccess } = useCreateUser();
+  const { toast } = useToast();
+  const { mutateAsync, isPending } = useCreateUser();
 
   const onSubmit = async (userPayload: CreateUserFormFields) => {
     const userData = {
@@ -36,12 +38,16 @@ const CreateUserForm = ({ setOpenDialog }: ICreateUserFormProps) => {
       avatar: 'https://i.imgur.com/yhW6Yw1.jpg',
     };
 
-    try {
-      await mutateAsync(userData);
+    const result = await mutateAsync(userData);
 
+    if (result) {
       setOpenDialog(false);
-    } catch (err) {
-      console.error(err);
+    } else {
+      toast({
+        title: t('error'),
+        description: t('generic-error'),
+        variant: 'destructive',
+      });
     }
   };
 
@@ -121,11 +127,7 @@ const CreateUserForm = ({ setOpenDialog }: ICreateUserFormProps) => {
           >
             {t('cancel')}
           </Button>
-          <Button
-            isLoading={isPending || isSuccess}
-            disabled={isPending || isSuccess}
-            type='submit'
-          >
+          <Button isLoading={isPending} disabled={isPending} type='submit'>
             {t('confirm')}
           </Button>
         </div>

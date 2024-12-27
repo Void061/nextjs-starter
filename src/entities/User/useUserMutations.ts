@@ -11,8 +11,10 @@ const useCreateUser = () => {
   return useMutation({
     mutationKey: ['addUser'],
     mutationFn: (userData: IUserCreateParams) => UserApi.addOne(userData),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['users'] });
+    onSuccess: (result) => {
+      if (result) queryClient.invalidateQueries({ queryKey: ['users'] });
+
+      return result;
     },
   });
 };
