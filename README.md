@@ -33,6 +33,11 @@ Go inside your project on supabase > settings > api > Project url (PUBLIC_URL)
 
 Go inside your project on supabase > settings > api > Project api keys > anon public (ANON KEY)
 
+## Supabase features
+
+- Confirm e-mail disabled (To enable go to: Authentication > Providers > Mail)
+If you enable emailing with the default supabase provider, some speed-limiting errors may occur, the advice is to use a gmail provider for free projects.
+
 ## Architecture
 The architecture remains true to the old paradigm, according to which the responsibility for “actions” lies with the client, so this repo does not follow the new conventions with component-server and action-server.
 

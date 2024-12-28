@@ -19,9 +19,15 @@
     "name-error": "Inserisci un nome di almeno 4 caratteri",
     "password-error": "Inserisci una password di almeno 6 caratteri",
     "generic-error": "Si è verificato un errore, riprova",
-    "error": "Errore"
+    "error": "Errore",
+    "signin-to-add-new-user": "Accedi per aggiungere un utente",
+    "signout": "Esci"
   },
   "Auth": {
+    "generic-error": "Si è verificato un errore, riprova",
+    "user-exists": "Questo utente esiste già",
+    "email-error": "Inserisci una e-mail valida",
+    "password-error": "Inserisci una password di almeno 6 caratteri",
     "welcome-back": "Benvenuto!",
     "register-title": "Registra un nuovo account",
     "email": "email",
@@ -30,6 +36,8 @@
     "password-placeholder": "La tua password",
     "forgot-password": "Hai dimenticato la password?",
     "signin": "Accedi",
+    "signup": "Registrati",
+    "signout": "Esci",
     "or-continue-with": "O continua con",
     "login-with-google": "Accedi con google",
     "have-an-account": "Hai già un account? "

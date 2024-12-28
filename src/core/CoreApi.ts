@@ -1,12 +1,19 @@
-import { BASE_API_URI } from '@/core/common/constants';
+'use client';
+
+import { SupabaseClient } from '@supabase/supabase-js';
+
+import { BASE_API_URI, DEFAULT_HEADERS } from '@/core/common/constants';
 import CoreApiError from '@/core/CoreApiError';
 import { BaseApiResponse } from '@/entities/common/types';
+import { createSupabaseBrowserClient } from '@/lib/supabase/client';
 
 class CoreApi {
   protected readonly baseUrl: string;
+  protected readonly supabase: SupabaseClient;
 
   constructor() {
     this.baseUrl = BASE_API_URI;
+    this.supabase = createSupabaseBrowserClient();
   }
 
   isError<T>(
@@ -15,10 +22,22 @@ class CoreApi {
     return responseToAnalyze instanceof CoreApiError;
   }
 
+  async getAccessToken(): Promise<string | undefined> {
+    const { data: session } = await this.supabase.auth.getSession();
+
+    return session?.session?.access_token;
+  }
+
   async get<T>(path: string): Promise<T | CoreApiError> {
     try {
+      const accessToken = await this.getAccessToken();
+      const headers = {
+        ...DEFAULT_HEADERS,
+        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+      };
+
       const response = await fetch(`${this.baseUrl}${path}`, {
-        headers: { 'Content-Type': 'application/json' },
+        headers,
       });
 
       if (!response.ok) {
@@ -47,10 +66,14 @@ class CoreApi {
 
   async post<T, Body>(path: string, body: Body): Promise<T | CoreApiError> {
     try {
+      const accessToken = await this.getAccessToken();
+      const headers = {
+        ...DEFAULT_HEADERS,
+        ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
+      };
+
       const response = await fetch(`${this.baseUrl}${path}`, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers,
         method: 'POST',
         body: JSON.stringify(body),
       });

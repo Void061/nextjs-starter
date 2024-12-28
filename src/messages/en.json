@@ -19,9 +19,15 @@
     "name-error": "Please insert valid name, min 4 characters",
     "password-error": "Please insert valid password, min 6 characters",
     "generic-error": "There was an error, please try again",
-    "error": "Error"
+    "error": "Error",
+    "signin-to-add-new-user": "Sign in to add new user",
+    "signout": "Signout"
   },
   "Auth": {
+    "generic-error": "There was an error, please try again",
+    "user-exists": "This user already exists",
+    "password-error": "Please insert valid password, min 6 characters",
+    "email-error": "Please insert valid email",
     "welcome-back": "Welcome!",
     "register-title": "Register your account",
     "email": "email",
@@ -30,6 +36,8 @@
     "password-placeholder": "Your password",
     "forgot-password": "Forgot your password?",
     "signin": "Signin",
+    "signup": "Signup",
+    "signout": "Signout",
     "or-continue-with": "Or continue with",
     "login-with-google": "Login with google",
     "have-an-account": "Already have an account? "
