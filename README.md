@@ -3,6 +3,9 @@
 
 Starter project for next.js, ready for development.
 
+This starter is designed to work closely with this back-end in NestJS [NestJS Starter](https://github.com/Void061/nestjs-starter)
+
+
 ## Features
 
 - ✨ Next.js (15)
@@ -33,9 +36,9 @@ Go inside your project on supabase > settings > api > Project url (PUBLIC_URL)
 
 Go inside your project on supabase > settings > api > Project api keys > anon public (ANON KEY)
 
-## Supabase features
+## Supabase setup
 
-- Confirm e-mail disabled (To enable go to: Authentication > Providers > Mail)
+- Need to disable sign-up confirm e-mail (go to: Authentication > Providers > Mail)
 If you enable emailing with the default supabase provider, some speed-limiting errors may occur, the advice is to use a gmail provider for free projects.
 
 ## Architecture
