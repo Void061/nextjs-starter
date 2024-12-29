@@ -40,6 +40,7 @@ Go inside your project on supabase > settings > api > Project api keys > anon pu
 
 - Need to disable sign-up confirm e-mail (go to: Authentication > Providers > Mail)
 If you enable emailing with the default supabase provider, some speed-limiting errors may occur, the advice is to use a gmail provider for free projects.
+- Currently the supabase token automatically updates.
 
 ## Architecture
 The architecture remains true to the old paradigm, according to which the responsibility for “actions” lies with the client, so this repo does not follow the new conventions with component-server and action-server.

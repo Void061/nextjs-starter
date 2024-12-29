@@ -3,16 +3,19 @@
     "welcome": "Welcome to Next.js starter!",
     "start": "Start now!",
     "id": "Identifier",
+    "title": "Title",
+    "title-description": "Title of the post",
+    "title-error": "Title must be min 4 characters",
     "name": "Name",
-    "create-new-user": "Click here to create new user",
+    "create-new-post": "Click here to create new post",
     "loading": "Loading",
     "email": "E-mail",
     "email-description": "Your personal e-mail",
     "password": "Password",
     "password-description": "Your personal password",
     "name-description": "Your personal name",
-    "create-user-form-title": "Create new user",
-    "create-user-form-description": "Fill all form fields to create new user",
+    "create-post-form-title": "Create new post",
+    "create-post-form-description": "Fill all form fields to create new post",
     "confirm": "Confirm",
     "cancel": "Cancel",
     "email-error": "Please insert valid email",
@@ -20,8 +23,9 @@
     "password-error": "Please insert valid password, min 6 characters",
     "generic-error": "There was an error, please try again",
     "error": "Error",
-    "signin-to-add-new-user": "Sign in to add new user",
-    "signout": "Signout"
+    "signin-to-add-new-post": "Sign in to add new post",
+    "signout": "Signout",
+    "post-list": "List of your recent post"
   },
   "Auth": {
     "generic-error": "There was an error, please try again",
@@ -40,6 +44,15 @@
     "signout": "Signout",
     "or-continue-with": "Or continue with",
     "login-with-google": "Login with google",
-    "have-an-account": "Already have an account? "
+    "have-an-account": "Already have an account? ",
+    "name": "Name",
+    "name-placeholder": "Your name",
+    "name-error": "Name must be min 4 characters",
+    "surname": "Surname",
+    "surname-placeholder": "Your surname",
+    "surname-error": "Surname must be min 4  characters"
+  },
+  "Global": {
+    "generic-error": "There was an error, please try again"
   }
 }

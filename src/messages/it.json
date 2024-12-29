@@ -3,16 +3,19 @@
     "welcome": "Benvenuto sullo starter di Next.js! ",
     "start": "Inizia subito!",
     "id": "Identificativo",
+    "title": "Titolo",
+    "title-description": "Titolo del post",
+    "title-error": "Il titolo dev'essere almeno 4 caratteri",
     "name": "Nome",
-    "create-new-user": "Clicca qui per creare un nuovo utente",
+    "create-new-post": "Clicca qui per creare un nuovo post",
     "loading": "Caricamento",
     "email": "E-mail",
     "email-description": "Il tuo indirizzo e-mail",
     "password": "Password",
     "password-description": "Password personale",
     "name-description": "Il tuo nome",
-    "create-user-form-title": "Crea un nuovo utente",
-    "create-user-form-description": "Compila il form per creare un nuovo utente",
+    "create-post-form-title": "Crea un nuovo post",
+    "create-post-form-description": "Compila il form per creare un nuovo post",
     "confirm": "Conferma",
     "cancel": "Annulla",
     "email-error": "Inserisci una e-mail valida",
@@ -20,8 +23,9 @@
     "password-error": "Inserisci una password di almeno 6 caratteri",
     "generic-error": "Si è verificato un errore, riprova",
     "error": "Errore",
-    "signin-to-add-new-user": "Accedi per aggiungere un utente",
-    "signout": "Esci"
+    "signin-to-add-new-post": "Accedi per aggiungere un post",
+    "signout": "Esci",
+    "post-list": "Lista dei tuoi post recenti"
   },
   "Auth": {
     "generic-error": "Si è verificato un errore, riprova",
@@ -40,6 +44,15 @@
     "signout": "Esci",
     "or-continue-with": "O continua con",
     "login-with-google": "Accedi con google",
-    "have-an-account": "Hai già un account? "
+    "have-an-account": "Hai già un account? ",
+    "name": "Nome",
+    "name-placeholder": "Il tuo nome",
+    "name-error": "Il nome deve essere minimo 4 caratteri",
+    "surname": "Cognome",
+    "surname-placeholder": "Il tuo cognome",
+    "surname-error": "Il cognome deve essere minimo 4  caratteri"
+  },
+  "Global": {
+    "generic-error": "Si è verificato un errore, riprova"
   }
 }

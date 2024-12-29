@@ -2,9 +2,8 @@
 
 import { useMemo, useState } from 'react';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Check, ChevronsUpDown } from 'lucide-react';
-import { useRouter } from 'next/navigation';
 
 import {
   Popover,
@@ -17,32 +16,51 @@ import {
   CommandItem,
   CommandList,
 } from '@/components/ui/command';
-import { languages } from '@/i18n/languages';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { useGetAllCountries } from '@/entities/Country/useCountryQueries';
+import { useChangeCountry } from '@/entities/User/useUserMutations';
+import CoreApiError from '@/core/CoreApiError';
+import { useToast } from '@/hooks/use-toast';
+import { KNOWN_ERRORS } from '@/common/constants';
+import { ECountries } from '@/common/types';
 
 const CountrySelector = () => {
+  const t = useTranslations('Global');
   const [open, setOpen] = useState<boolean>(false);
   const [value, setValue] = useState<string>();
   const locale = useLocale();
-  const router = useRouter();
+  const { data: countries } = useGetAllCountries();
+  const { mutateAsync } = useChangeCountry();
+  const { toast } = useToast();
 
   useMemo(() => {
-    const _locale = languages.find((language) => language.value === locale);
+    const _locale = countries?.find((country) => country.value === locale);
 
     setValue(_locale?.value);
-  }, [locale]);
+  }, [locale, countries]);
 
-  const handleChangCountry = (language: string) => {
-    if (language !== value) {
-      document.cookie = `locale=${language}; path=/; max-age=31536000;`;
+  const handleChangCountry = async (country: string) => {
+    const selectedCountry =
+      country === ECountries.EN ? ECountries.EN : ECountries.IT;
 
-      setValue(language);
+    const response = await mutateAsync(selectedCountry);
 
-      router.refresh();
+    if (response instanceof CoreApiError) {
+      let errorMsg = response.message;
+
+      if (response.message === KNOWN_ERRORS.FAILED_TO_FETCH) {
+        errorMsg = t('generic-error');
+      }
+
+      toast({
+        title: errorMsg,
+        variant: 'destructive',
+      });
+    } else {
+      setValue(country);
+      setOpen(false);
     }
-
-    setOpen(false);
   };
 
   return (
@@ -54,7 +72,7 @@ const CountrySelector = () => {
           aria-expanded={open}
           className='w-[200px] justify-between'
         >
-          {languages.find((language) => language.value === value)?.label}
+          {countries?.find((language) => language.value === value)?.title}
           <ChevronsUpDown className='opacity-50' />
         </Button>
       </PopoverTrigger>
@@ -62,17 +80,17 @@ const CountrySelector = () => {
         <Command>
           <CommandList>
             <CommandGroup>
-              {languages.map((language) => (
+              {countries?.map((country) => (
                 <CommandItem
-                  key={language.value}
-                  value={language.value}
+                  key={country.value}
+                  value={country.value}
                   onSelect={(currentValue) => handleChangCountry(currentValue)}
                 >
-                  {language.label}
+                  {country.title}
                   <Check
                     className={cn(
                       'ml-auto',
-                      value === language.value ? 'opacity-100' : 'opacity-0'
+                      value === country.value ? 'opacity-100' : 'opacity-0'
                     )}
                   />
                 </CommandItem>

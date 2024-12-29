@@ -4,8 +4,9 @@ import React from 'react';
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -14,12 +15,15 @@ import {
   SignupFormFields,
   signupValidation,
 } from '@/actions/auth/validation/signupValidationSchema';
-import { singUpWithEmailAndPassword } from '@/actions/auth';
+import { signUpWithEmailAndPassword } from '@/actions/auth';
 import { AUTH_ROUTES } from '@/routes';
 import { useToast } from '@/hooks/use-toast';
 import { SUPABASE_AUTH_ERRORS } from '@/actions/auth/common/constants';
+import { EThemes } from '@/common/types';
 
 export function SignupForm() {
+  const { theme } = useTheme();
+  const locale = useLocale();
   const t = useTranslations('Auth');
 
   const { toast } = useToast();
@@ -32,9 +36,13 @@ export function SignupForm() {
   });
 
   const onSubmit = async (userPayload: SignupFormFields) => {
-    const { error } = await singUpWithEmailAndPassword({
+    const { error } = await signUpWithEmailAndPassword({
       email: userPayload.email,
       password: userPayload.password,
+      name: userPayload.name,
+      surname: userPayload.surname,
+      theme: theme || EThemes.LIGHT,
+      country: locale,
     });
 
     if (error) {
@@ -52,7 +60,7 @@ export function SignupForm() {
   };
 
   return (
-    <div className='m-auto max-w-md'>
+    <div className='m-auto max-w-lg'>
       <form onSubmit={handleSubmit(onSubmit)} className='p-6 md:p-8'>
         <div className='flex flex-col gap-6'>
           <div className='flex flex-col items-center text-center'>
@@ -61,6 +69,37 @@ export function SignupForm() {
               {t('register-title')}
             </p>
           </div>
+          <div className='grid grid-cols-2 gap-2'>
+            <div>
+              <Label htmlFor='name'>{t('name')}</Label>
+              <Input
+                {...register('name')}
+                id='name'
+                type='name'
+                placeholder={t('name-placeholder')}
+              />
+              {errors.email && (
+                <span className='text-sm text-destructive'>
+                  {t('name-error')}
+                </span>
+              )}
+            </div>
+            <div>
+              <Label htmlFor='surname'>{t('surname')}</Label>
+              <Input
+                {...register('surname')}
+                id='surname'
+                type='surname'
+                placeholder={t('surname-placeholder')}
+              />
+              {errors.email && (
+                <span className='text-sm text-destructive'>
+                  {t('surname-error')}
+                </span>
+              )}
+            </div>
+          </div>
+
           <div className='grid gap-2'>
             <Label htmlFor='email'>{t('email')}</Label>
             <Input

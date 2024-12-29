@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 import Button from '@/components/custom/Button';
-import CreateUserForm from '@/components/custom/CreateUserForm';
+import CreatePostForm from '@/components/custom/CreatePostForm';
 import {
   Dialog,
   DialogContent,
@@ -19,11 +19,11 @@ import { AUTH_ROUTES } from '@/routes';
 import { logout } from '@/actions/auth';
 import { useToast } from '@/hooks/use-toast';
 
-interface IAddNewUserProps {
+interface IAddNewPostProps {
   isLogged?: boolean;
 }
 
-const AddNewUser = ({ isLogged }: IAddNewUserProps) => {
+const AddNewPost = ({ isLogged }: IAddNewPostProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoggingOut, setIsLoggindOut] = useState<boolean>(false);
   const { toast } = useToast();
@@ -58,28 +58,28 @@ const AddNewUser = ({ isLogged }: IAddNewUserProps) => {
               {t('signout')}
             </Button>
             <Button onClick={() => setIsOpen(true)}>
-              {t('create-new-user')}
+              {t('create-new-post')}
             </Button>
           </div>
 
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{t('create-user-form-title')}</DialogTitle>
+              <DialogTitle>{t('create-post-form-title')}</DialogTitle>
               <DialogDescription>
-                {t('create-user-form-description')}
+                {t('create-post-form-description')}
               </DialogDescription>
             </DialogHeader>
 
-            <CreateUserForm setOpenDialog={setIsOpen} />
+            <CreatePostForm setOpenDialog={setIsOpen} />
           </DialogContent>
         </Dialog>
       ) : (
         <Link href={AUTH_ROUTES.SIGN_IN} className={buttonVariants()}>
-          {t('signin-to-add-new-user')}
+          {t('signin-to-add-new-post')}
         </Link>
       )}
     </div>
   );
 };
 
-export default AddNewUser;
+export default AddNewPost;

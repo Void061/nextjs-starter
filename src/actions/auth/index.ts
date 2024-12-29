@@ -3,9 +3,14 @@
 import { AuthError, AuthResponse } from '@supabase/auth-js';
 
 import { createSupabaseServerClient } from '@/lib/supabase/server';
-import { IWithUserCredentialsParams } from '@/actions/auth/common/types';
+import {
+  IAuthResponse,
+  IWithUserCredentialsParams,
+} from '@/actions/auth/common/types';
+import { DEFAULT_HEADERS } from '@/core/common/constants';
+import { STORE_USER_IN_DB } from '@/actions/auth/routes';
 
-export async function singInWithEmailAndPassword(
+export async function signInWithEmailAndPassword(
   params: IWithUserCredentialsParams
 ): Promise<AuthResponse> {
   const supabase = await createSupabaseServerClient();
@@ -16,18 +21,53 @@ export async function singInWithEmailAndPassword(
   });
 }
 
-export async function singUpWithEmailAndPassword(
+export async function signUpWithEmailAndPassword(
   params: IWithUserCredentialsParams
-): Promise<AuthResponse> {
+): Promise<IAuthResponse> {
   const supabase = await createSupabaseServerClient();
 
-  return await supabase.auth.signUp({
+  const authResponse = await supabase.auth.signUp({
     email: params.email,
     password: params.password,
-    options: {
-      emailRedirectTo: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/login`,
-    },
   });
+
+  if (authResponse.error)
+    return { error: new Error(authResponse.error.message) };
+
+  // Store user on local DB
+  if (authResponse?.data.user?.id && authResponse.data.session?.access_token) {
+    const headers = {
+      ...DEFAULT_HEADERS,
+      Authorization: `Bearer ${authResponse.data.session.access_token}`,
+    };
+
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API_URL}${STORE_USER_IN_DB}`,
+      {
+        headers,
+        method: 'POST',
+        body: JSON.stringify({
+          id: authResponse.data.user.id,
+          name: params.name,
+          surname: params.surname,
+          email: params.email,
+          theme: params.theme,
+          country: params.country,
+        }),
+      }
+    );
+
+    if (!response.ok) {
+      const errorBody = await response.json();
+
+      return { error: new Error(errorBody.message) };
+    }
+  }
+
+  return {
+    data: authResponse.data,
+    error: authResponse.error,
+  };
 }
 
 export async function logout(): Promise<{ error: AuthError | null }> {

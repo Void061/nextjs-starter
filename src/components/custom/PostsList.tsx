@@ -11,11 +11,11 @@ import {
   TableBody,
   TableCell,
 } from '@/components/ui/table';
-import { useGetAllUsers } from '@/entities/User/useUserQueries';
+import { useGetAllPosts } from '@/entities/Post/usePostQueries';
 
-const UsersList = () => {
+const PostsList = () => {
   const t = useTranslations('HomePage');
-  const { data: users, isLoading, isFetching } = useGetAllUsers();
+  const { data: posts, isLoading, isFetching } = useGetAllPosts();
 
   if (isLoading) {
     return <div>{t('loading')}...</div>;
@@ -23,11 +23,11 @@ const UsersList = () => {
 
   return (
     <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableCaption>{t('post-list')}</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead className='w-[100px]'>{t('id')}</TableHead>
-          <TableHead>{t('name')}</TableHead>
+          <TableHead>{t('title')}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -38,13 +38,13 @@ const UsersList = () => {
           </TableRow>
         )}
 
-        {users
+        {posts
           ?.slice()
           ?.reverse()
-          .map((user) => (
-            <TableRow key={user.id}>
-              <TableCell className='font-medium'>{user.id}</TableCell>
-              <TableCell>{user.name}</TableCell>
+          .map((post) => (
+            <TableRow key={post.id}>
+              <TableCell className='font-medium'>{post.id}</TableCell>
+              <TableCell>{post.title}</TableCell>
             </TableRow>
           ))}
       </TableBody>
@@ -52,4 +52,4 @@ const UsersList = () => {
   );
 };
 
-export default UsersList;
+export default PostsList;

@@ -1,5 +1,5 @@
-import UsersList from '@/components/custom/UsersList';
-import AddNewUser from '@/components/custom/AddNewUser';
+import PostsList from '@/components/custom/PostsList';
+import AddNewPost from '@/components/custom/AddNewPost';
 import CountrySelector from '@/components/custom/CountrySelector';
 import ThemeToggler from '@/components/custom/ThemeToggler';
 import { isUserAlreadyLogged } from '@/actions/auth';
@@ -12,8 +12,8 @@ export default async function HomePage() {
       <div className='max-w-[800px]'>
         <ThemeToggler />
         <CountrySelector />
-        <UsersList />
-        <AddNewUser isLogged={isLogged} />
+        <PostsList />
+        <AddNewPost isLogged={isLogged} />
       </div>
     </div>
   );

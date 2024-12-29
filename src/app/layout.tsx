@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { ReactQueryProvider } from '@/components/providers/react-query-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { getUserPreferences } from '@/actions/preferences';
 
 export default async function RootLayout({
   children,
@@ -15,6 +16,7 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const preferences = await getUserPreferences();
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -23,7 +25,7 @@ export default async function RootLayout({
           <ReactQueryProvider>
             <ThemeProvider
               attribute='class'
-              defaultTheme='dark'
+              defaultTheme={preferences.theme}
               disableTransitionOnChange
             >
               <main>{children}</main>

@@ -1,11 +1,9 @@
-export interface IUser {
-  id: number;
-  name: string;
+import { ECountries, EThemes } from '@/common/types';
+
+export interface ISwitchThemeParams {
+  themeName: EThemes;
 }
 
-export interface IUserCreateParams {
-  email: string;
-  password: string;
-  avatar: string;
-  name: string;
+export interface IChangeCountryParams {
+  countryName: ECountries;
 }
