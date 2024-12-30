@@ -15,7 +15,7 @@ This starter is designed to work closely with this back-end in NestJS [NestJS St
 - ✨ Dark Mode (With settings on DB per account and locally for guests)
 - ✨ React-query
 - ✨ Zunstand (TBD)
-- ✨ Supabase auth (Sign-in / up with credentials + Password recovery(TBD) + Password change(TBD) + Provider auth sample( Google - TBD))
+- ✨ Supabase auth (Sign-in / up with credentials)
 - ✨ Protected routes with middleware
 - ✨ Proxy (Hide real server-api source TBD)
 - ✨ Dev-friendly CLI (TBD)
