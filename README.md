@@ -6,6 +6,10 @@ Starter project for next.js, ready for development.
 This starter is designed to work closely with this back-end in NestJS [NestJS Starter](https://github.com/Void061/nestjs-starter)
 
 
+## Formatting Init
+- Set your IDE to execute on SAVE prettier and eslint.
+- Set your IDE to EOF Unix Mac.
+
 ## Features
 
 - ✨ Next.js (15)
