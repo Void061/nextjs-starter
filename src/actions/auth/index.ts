@@ -5,13 +5,14 @@ import { AuthError, AuthResponse } from '@supabase/auth-js';
 import { createSupabaseServerClient } from '@/lib/supabase/server';
 import {
   IAuthResponse,
-  IWithUserCredentialsParams,
+  ISignupWithCredentialsParams,
+  ISigninWithCredentialsParams,
 } from '@/actions/auth/common/types';
 import { DEFAULT_HEADERS } from '@/core/common/constants';
 import { STORE_USER_IN_DB } from '@/actions/auth/routes';
 
 export async function signInWithEmailAndPassword(
-  params: IWithUserCredentialsParams
+  params: ISigninWithCredentialsParams
 ): Promise<AuthResponse> {
   const supabase = await createSupabaseServerClient();
 
@@ -22,7 +23,7 @@ export async function signInWithEmailAndPassword(
 }
 
 export async function signUpWithEmailAndPassword(
-  params: IWithUserCredentialsParams
+  params: ISignupWithCredentialsParams
 ): Promise<IAuthResponse> {
   const supabase = await createSupabaseServerClient();
 

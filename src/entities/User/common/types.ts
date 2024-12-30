@@ -7,3 +7,11 @@ export interface ISwitchThemeParams {
 export interface IChangeCountryParams {
   countryName: ECountries;
 }
+
+export interface IUserProfile {
+  email: string;
+  name: string;
+  surname: string;
+  country: string;
+  theme: string;
+}

@@ -25,7 +25,7 @@ export default async function RootLayout({
           <ReactQueryProvider>
             <ThemeProvider
               attribute='class'
-              defaultTheme={preferences.theme}
+              defaultTheme={`${preferences?.theme || 'dark'}`}
               disableTransitionOnChange
             >
               <main>{children}</main>

@@ -10,7 +10,7 @@ const useGetAllThemes = () => {
   return useQuery({
     queryKey: ['themes'],
     queryFn: () => themesApi.findAll(),
-    staleTime: 30 * 1000,
+    staleTime: Infinity,
   });
 };
 

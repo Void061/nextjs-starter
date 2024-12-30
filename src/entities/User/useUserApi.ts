@@ -8,9 +8,11 @@ import CoreApiError from '@/core/CoreApiError';
 import {
   IChangeCountryParams,
   ISwitchThemeParams,
+  IUserProfile,
 } from '@/entities/User/common/types';
 import { ICountry } from '@/entities/Country/common/types';
 import { createSupabaseBrowserClient } from '@/lib/supabase/client';
+import { logout } from '@/actions/auth';
 
 function useUserApi() {
   const coreApi = useCoreApi();
@@ -61,7 +63,22 @@ function useUserApi() {
     return !!data?.session;
   };
 
+  const getMe = async (): Promise<IUserProfile | void> => {
+    const response = await coreApi.get<BaseApiResponse<IUserProfile>>(
+      USERS_API_ROUTES.GET_ME
+    );
+
+    if (coreApi.isError(response)) {
+      await logout();
+
+      return;
+    }
+
+    return response;
+  };
+
   return {
+    getMe,
     isLoggedIn,
     switchTheme,
     changeCountry,

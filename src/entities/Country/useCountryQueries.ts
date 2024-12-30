@@ -10,7 +10,7 @@ const useGetAllCountries = () => {
   return useQuery({
     queryKey: ['countries'],
     queryFn: () => countryApi.findAll(),
-    staleTime: 30 * 1000,
+    staleTime: Infinity,
   });
 };
 

@@ -11,9 +11,9 @@ This starter is designed to work closely with this back-end in NestJS [NestJS St
 - ✨ Next.js (15)
 - ✨ Tailwind
 - ✨ ShadcnUI
-- ✨ next-intl
+- ✨ internationalization (next-intl, with settings on DB per account and locally for guests)
 - ✨ React-query
-- ✨ Dark Mode
+- ✨ Dark Mode (With settings on DB per account and locally for guests)
 - ✨ Zunstand (TBD)
 - ✨ Eslint
 - ✨ Prettier
@@ -66,7 +66,7 @@ Within the project we try to use Screaming Architecture as much as possible, hig
 - /app (Routing)
 
 #### Actions
-- /actions (Server-side actions, only for auth)
+- /actions (Server-side actions)
 
 #### Common folder
 - /common (Global types and constants)
@@ -80,7 +80,8 @@ Within the project we try to use Screaming Architecture as much as possible, hig
 #### Core folder
 - /core (Core api)
 - /core/common (Types and constants)
-- /core/CoreApi.ts (Api calls with fetch)
+- /core/client/useCoreApi.ts (Api calls for client-side with fetch)
+- /core/server/serverCoreApi.ts (Api calls for server-side with fetch)
 - /core/CoreApiError.ts (Api error normalization)
 
 #### Entities folder
@@ -99,7 +100,6 @@ Within the project we try to use Screaming Architecture as much as possible, hig
 #### I18n folder
 - /i18n (All translations features)
 - /i18n/common (Types and constants)
-- /i18n/languages.ts (List of supported languages)
 - /i18n/request.ts (Server-side locale detector)
 
 #### Lib folder

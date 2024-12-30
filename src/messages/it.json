@@ -45,12 +45,15 @@
     "or-continue-with": "O continua con",
     "login-with-google": "Accedi con google",
     "have-an-account": "Hai già un account? ",
+    "dont-have-an-account": "Non hai ancora un account? ",
     "name": "Nome",
     "name-placeholder": "Il tuo nome",
     "name-error": "Il nome deve essere minimo 4 caratteri",
     "surname": "Cognome",
     "surname-placeholder": "Il tuo cognome",
-    "surname-error": "Il cognome deve essere minimo 4  caratteri"
+    "surname-error": "Il cognome deve essere minimo 4  caratteri",
+    "signin-title": "Accedi al tuo account",
+    "invalid-credentials": "Dati errati"
   },
   "Global": {
     "generic-error": "Si è verificato un errore, riprova"

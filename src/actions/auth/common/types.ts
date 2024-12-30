@@ -1,10 +1,15 @@
-export interface IWithUserCredentialsParams {
+export interface ISignupWithCredentialsParams {
   email: string;
   password: string;
   name: string;
   surname: string;
   theme: string;
   country: string;
+}
+
+export interface ISigninWithCredentialsParams {
+  email: string;
+  password: string;
 }
 
 export interface IAuthResponse {

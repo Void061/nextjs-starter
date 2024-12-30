@@ -45,12 +45,15 @@
     "or-continue-with": "Or continue with",
     "login-with-google": "Login with google",
     "have-an-account": "Already have an account? ",
+    "dont-have-an-account": "Don't have an account? ",
     "name": "Name",
     "name-placeholder": "Your name",
     "name-error": "Name must be min 4 characters",
     "surname": "Surname",
     "surname-placeholder": "Your surname",
-    "surname-error": "Surname must be min 4  characters"
+    "surname-error": "Surname must be min 4  characters",
+    "signin-title": "Signin to your account",
+    "invalid-credentials": "Invalid credentials"
   },
   "Global": {
     "generic-error": "There was an error, please try again"
