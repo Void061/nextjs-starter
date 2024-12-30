@@ -7,8 +7,8 @@ This starter is designed to work closely with this back-end in NestJS [NestJS St
 
 
 ## Formatting Init
-- Set your IDE to execute on SAVE prettier and eslint.
-- Set your IDE to EOF Unix Mac.
+- Set your IDE to execute on SAVE prettier and eslint
+- Set your IDE to EOF Unix Mac
 
 ## Features
 
