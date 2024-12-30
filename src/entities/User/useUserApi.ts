@@ -8,6 +8,7 @@ import CoreApiError from '@/core/CoreApiError';
 import {
   IChangeCountryParams,
   ISwitchThemeParams,
+  IUpdateProfileParams,
   IUserProfile,
 } from '@/entities/User/common/types';
 import { ICountry } from '@/entities/Country/common/types';
@@ -77,11 +78,27 @@ function useUserApi() {
     return response;
   };
 
+  const updateProfile = async (
+    updateProfileParams: IUpdateProfileParams
+  ): Promise<IUserProfile | CoreApiError> => {
+    const response = coreApi.patch<
+      BaseApiResponse<IUserProfile>,
+      IUpdateProfileParams
+    >(USERS_API_ROUTES.UPDATE_PROFILE, updateProfileParams);
+
+    if (coreApi.isError(response)) {
+      return response;
+    }
+
+    return response;
+  };
+
   return {
     getMe,
     isLoggedIn,
     switchTheme,
     changeCountry,
+    updateProfile,
   };
 }
 

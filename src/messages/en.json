@@ -55,6 +55,11 @@
     "signin-title": "Signin to your account",
     "invalid-credentials": "Invalid credentials"
   },
+  "My-Account": {
+    "page-title": "My account page",
+    "you-can-edit-your-account": "From this page you can edit your account informations",
+    "save-changes": "Save changes"
+  },
   "Global": {
     "generic-error": "There was an error, please try again"
   }

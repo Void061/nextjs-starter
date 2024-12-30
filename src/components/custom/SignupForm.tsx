@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import { useRouter } from 'next/navigation';
 
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -16,7 +17,7 @@ import {
   signupValidation,
 } from '@/actions/auth/validation/signupValidationSchema';
 import { signUpWithEmailAndPassword } from '@/actions/auth';
-import { AUTH_ROUTES } from '@/routes';
+import { AUTH_ROUTES, HOME_ROUTE } from '@/routes';
 import { useToast } from '@/hooks/use-toast';
 import { SUPABASE_AUTH_ERRORS } from '@/actions/auth/common/constants';
 import { EThemes } from '@/common/types';
@@ -25,7 +26,7 @@ export function SignupForm() {
   const { theme } = useTheme();
   const locale = useLocale();
   const t = useTranslations('Auth');
-
+  const router = useRouter();
   const { toast } = useToast();
   const {
     handleSubmit,
@@ -57,6 +58,8 @@ export function SignupForm() {
         variant: 'destructive',
       });
     }
+
+    router.push(HOME_ROUTE);
   };
 
   return (

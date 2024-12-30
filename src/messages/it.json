@@ -55,6 +55,11 @@
     "signin-title": "Accedi al tuo account",
     "invalid-credentials": "Dati errati"
   },
+  "My-Account": {
+    "page-title": "Il mio account",
+    "you-can-edit-your-account": "Da questa pagina puoi modificare le informazioni del tuo account",
+    "save-changes": "Salva modifiche"
+  },
   "Global": {
     "generic-error": "Si è verificato un errore, riprova"
   }

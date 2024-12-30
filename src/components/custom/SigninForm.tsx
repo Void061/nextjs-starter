@@ -7,12 +7,13 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
+import { useRouter } from 'next/navigation';
 
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import Button from '@/components/custom/Button';
 import { signInWithEmailAndPassword } from '@/actions/auth';
-import { AUTH_ROUTES } from '@/routes';
+import { AUTH_ROUTES, HOME_ROUTE } from '@/routes';
 import { useToast } from '@/hooks/use-toast';
 import {
   SigninFormFields,
@@ -26,6 +27,7 @@ export function SigninForm() {
   const { getMe } = useUserApi();
   const { toast } = useToast();
   const { setTheme } = useTheme();
+  const router = useRouter();
   const {
     handleSubmit,
     register,
@@ -59,6 +61,8 @@ export function SigninForm() {
 
     if (getMeResponse) {
       setTheme(getMeResponse.theme);
+
+      router.push(HOME_ROUTE);
     }
   };
 

@@ -4,6 +4,8 @@ const AUTH_ROUTES = {
   SIGN_UP: `${BASE_AUTH_ROUTE}/signup`,
 };
 
+const MY_ACCOUNT_ROUTE = '/my-account';
+
 const HOME_ROUTE = '/';
 
-export { HOME_ROUTE, AUTH_ROUTES };
+export { BASE_AUTH_ROUTE, MY_ACCOUNT_ROUTE, HOME_ROUTE, AUTH_ROUTES };

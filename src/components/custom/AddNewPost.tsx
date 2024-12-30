@@ -15,9 +15,10 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { buttonVariants } from '@/components/ui/button';
-import { AUTH_ROUTES } from '@/routes';
+import { AUTH_ROUTES, MY_ACCOUNT_ROUTE } from '@/routes';
 import { logout } from '@/actions/auth';
 import { useToast } from '@/hooks/use-toast';
+import { cn } from '@/lib/utils';
 
 interface IAddNewPostProps {
   isLogged?: boolean;
@@ -27,7 +28,8 @@ const AddNewPost = ({ isLogged }: IAddNewPostProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isLoggingOut, setIsLoggindOut] = useState<boolean>(false);
   const { toast } = useToast();
-  const t = useTranslations('HomePage');
+  const homeTranslations = useTranslations('HomePage');
+  const myAccountTranslations = useTranslations('My-Account');
 
   const handleLogout = async () => {
     setIsLoggindOut(true);
@@ -36,7 +38,7 @@ const AddNewPost = ({ isLogged }: IAddNewPostProps) => {
 
     if (error) {
       toast({
-        title: t('generic-error'),
+        title: homeTranslations('generic-error'),
         variant: 'destructive',
       });
     }
@@ -49,24 +51,29 @@ const AddNewPost = ({ isLogged }: IAddNewPostProps) => {
       {isLogged ? (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <div className='flex flex-col gap-2'>
+            <Link href={MY_ACCOUNT_ROUTE} className={cn(buttonVariants())}>
+              {myAccountTranslations('page-title')}
+            </Link>
             <Button
               isLoading={isLoggingOut}
               disabled={isLoggingOut}
               onClick={handleLogout}
               className='max-w-sm'
             >
-              {t('signout')}
+              {homeTranslations('signout')}
             </Button>
             <Button onClick={() => setIsOpen(true)}>
-              {t('create-new-post')}
+              {homeTranslations('create-new-post')}
             </Button>
           </div>
 
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>{t('create-post-form-title')}</DialogTitle>
+              <DialogTitle>
+                {homeTranslations('create-post-form-title')}
+              </DialogTitle>
               <DialogDescription>
-                {t('create-post-form-description')}
+                {homeTranslations('create-post-form-description')}
               </DialogDescription>
             </DialogHeader>
 
@@ -75,7 +82,7 @@ const AddNewPost = ({ isLogged }: IAddNewPostProps) => {
         </Dialog>
       ) : (
         <Link href={AUTH_ROUTES.SIGN_IN} className={buttonVariants()}>
-          {t('signin-to-add-new-post')}
+          {homeTranslations('signin-to-add-new-post')}
         </Link>
       )}
     </div>

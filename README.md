@@ -16,6 +16,7 @@ This starter is designed to work closely with this back-end in NestJS [NestJS St
 - ✨ React-query
 - ✨ Zunstand (TBD)
 - ✨ Supabase auth (Sign-in / up with credentials + Password recovery(TBD) + Password change(TBD) + Provider auth sample( Google - TBD))
+- ✨ Protected routes with middleware
 - ✨ Proxy (Hide real server-api source TBD)
 - ✨ Dev-friendly CLI (TBD)
 - ✨ Husky
@@ -109,11 +110,17 @@ Within the project we try to use Screaming Architecture as much as possible, hig
 - /messages (All translations)
 - /messages/[lang].json (Translations by page)
 
+#### Middlewares folder
+- /supabase-middleware.ts (Auth protection)
+
 #### Routes folder
 - /routes (All app-routes)
 
 #### Styles folder
 - /styles (Global style)
+
+#### Middleware file
+Load your middlewares here (Basic: Supabase middleware)
 
 ## Dev-friendly cli
 TBD

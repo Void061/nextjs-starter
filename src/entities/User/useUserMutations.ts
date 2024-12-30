@@ -1,6 +1,6 @@
 'use client';
 
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/navigation';
 
@@ -8,6 +8,7 @@ import useUserApi from '@/entities/User/useUserApi';
 import { ECountries, EThemes } from '@/common/types';
 import CoreApiError from '@/core/CoreApiError';
 import { UpdateLocale } from '@/lib/update-locale';
+import { IUpdateProfileParams } from '@/entities/User/common/types';
 
 const useSwitchTheme = () => {
   const usersApi = useUserApi();
@@ -42,4 +43,22 @@ const useChangeCountry = () => {
   });
 };
 
-export { useSwitchTheme, useChangeCountry };
+const useUpdateProfile = () => {
+  const usersApi = useUserApi();
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationKey: ['updateProfile'],
+    mutationFn: (updateProfileParams: IUpdateProfileParams) =>
+      usersApi.updateProfile(updateProfileParams),
+    onSuccess: (result) => {
+      if (!(result instanceof CoreApiError)) {
+        queryClient.invalidateQueries({ queryKey: ['my-account'] });
+      }
+
+      return result;
+    },
+  });
+};
+
+export { useSwitchTheme, useChangeCountry, useUpdateProfile };

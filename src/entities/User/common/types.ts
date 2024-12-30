@@ -15,3 +15,8 @@ export interface IUserProfile {
   country: string;
   theme: string;
 }
+
+export interface IUpdateProfileParams {
+  name: string;
+  surname: string;
+}
