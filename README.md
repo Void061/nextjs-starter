@@ -12,15 +12,15 @@ This starter is designed to work closely with this back-end in NestJS [NestJS St
 - ✨ Tailwind
 - ✨ ShadcnUI
 - ✨ internationalization (next-intl, with settings on DB per account and locally for guests)
-- ✨ React-query
 - ✨ Dark Mode (With settings on DB per account and locally for guests)
+- ✨ React-query
 - ✨ Zunstand (TBD)
+- ✨ Supabase auth (Sign-in / up with credentials + Password recovery(TBD) + Password change(TBD) + Provider auth sample( Google - TBD))
+- ✨ Proxy (Hide real server-api source TBD)
+- ✨ Dev-friendly CLI (TBD)
+- ✨ Husky
 - ✨ Eslint
 - ✨ Prettier
-- ✨ Husky
-- ✨ Dev-friendly CLI (TBD)
-- ✨ Supabase auth (TBD)
-- ✨ Proxy (Hide real server-api source TBD)
 - ✨ LF characters
 
 ## Concepts
